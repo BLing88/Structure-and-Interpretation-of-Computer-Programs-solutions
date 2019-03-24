@@ -1,0 +1,42 @@
+; run in terminal (load "Scheme/SICP_Ch1.scm")
+
+; Exercise 1.2
+;(/ (+ 5
+;      (+ 4
+;	 (- 2
+;	    (- 3
+;	       (+ 6
+;		  (/ 4 5)
+;		  )
+;	       )
+;	    )
+;	 )
+;     )
+;      (* 3
+;	 (- 6 2)
+;;	 (- 2 7)))
+
+;; Exercise 1.3
+;; (define (sumOfLargestSquares a b c)
+;;   (define (max x y)
+;;     (cond ((> x y) x)
+;; 	  (else y))
+;;     )
+;;   (define largest (max (max a b)
+;; 		       c))
+;;   (define secondLargest (cond ((= largest a) (max b c))
+;; 				((= largest b) (max a c))
+;; 				(else (max a b))))
+;;   (define (square x) (* x x))
+
+;;   (+ (square largest)
+;;      (square secondLargest))      
+;; )
+
+;; (sumOfLargestSquares 2 3 4)
+
+
+;; Exercise 1.4
+;; (define (a-plus-abs-b a b)
+;;   ((if (> b 0) + -) a b))
+;; this returns a + abs(b)

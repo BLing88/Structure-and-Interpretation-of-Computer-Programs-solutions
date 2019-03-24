@@ -1,0 +1,4 @@
+					; Exercise 1.7
+; If we're dealing with numbers larger than the precision of the computer, then
+					; squaring will lead to truncation.
+; With very small numbers, the difference between very small numbers will be close to the tolerance used in the good-enough? test, leading to poor approximations
