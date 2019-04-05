@@ -1,0 +1,23 @@
+We first show that Fib(n) = (phi^n - psi^n) / sqrt(5). We proceed by induction.
+Base case n = 0:
+trivial
+Inductive step: Now suppose Fib(m) = (phi^m - psi^m) / sqrt(5) for all m = 0,1,2, ..., n-1.
+By the definition of the fibonacci numbers,
+Fib(n) = Fib(n-1) + Fib(n-2)
+       = (phi^(n-1) - psi^(n-1)) / sqrt(5) + (phi^(n-2) - psi^(n-2)) / sqrt(5)
+    
+We now show that phi^n = phi^(n-1) + phi^(n-2).
+phi^(n-1) + phi^(n-2) = phi^n / phi + phi^n / phi^2
+                    = phi^n / phi + phi^n / (phi + 1) using the fact phi^2 = phi + 1
+                    = phi^n(1/phi + 1/(phi+1))
+                    = phi^n (2phi + 1)/(phi^2 + 1)
+                    = phi^n (2phi + 1)/(2phi + 1)
+                    = phi^n
+Similarly, one can show psi^n = psi^(n-1) + psi^(n-2).
+
+Using these results, 
+Fib(n) = (phi^(n-1)) + phi^(n-2) - (psi^(n-1) + psi^(n-2))) / sqrt(5)
+       = (phi^n - psi^n) / sqrt(5)
+
+Note that abs(psi / sqrt(5)) < 0.5 so that abs(psi^n / sqrt(5)) < 1 for all n >= 1. Thus
+abs(Fib(n) - phi^n / sqrt(5)) < 0.5 for all n >= 1. Hence Fib(n) is the closest integer to phi^n / sqrt(5).
