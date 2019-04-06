@@ -1,0 +1,4 @@
+Using normal-order evaluation, remainder is performed 14 times in evaluating the condition (= b 0),
+and then 4 more times in evaluating the final answer, for a total of 18 times.
+
+Using applicative-order evaluation, remainder is called performed 4 times.
