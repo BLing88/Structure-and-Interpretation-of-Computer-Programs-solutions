@@ -1,0 +1,15 @@
+(define (fast-mult a b)
+    (define (double a)
+        (+ a a))
+    (define (halve a)
+        (/ a 2))
+    (define (is-odd? a)
+        (if (= (modulo a 2) 1) 
+            #t
+            #f))
+    (cond ((= b 0) 0)
+        ((not (is-odd? b)) (double (fast-mult a (halve b))))
+        (else (+ a (fast-mult a (- b 1)))))
+)
+
+(fast-mult 10 12)
