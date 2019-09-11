@@ -9,9 +9,9 @@
             )
         )
     )
-    (/ (* h (iter (+ (f a) (f b)) n)) 3)
+    (/ (* h (iter (+ (f a) (f b)) (- n 1))) 3)
 )
 
 (define (cube x) (* x x x ))
 
-(simpsons-rule cube 0 1 100000)
+(simpsons-rule cube 0 1 1000)
