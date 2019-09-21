@@ -32,5 +32,27 @@
            (square (+ (* 2 i) 1))))
     (* 4 (product term 1 add-one num-terms)))
 
-(pi-approx 1)
+; (pi-approx 100)
 ; (factorial 7)
+
+(define (product-recursive term a compute-next-index b)
+    (if (> a b)
+        1
+        (* (term a)
+           (product-recursive term (compute-next-index a) compute-next-index b))))
+
+(define (factorial-recursive n)
+    (product-recursive identity 1 add-one n))
+
+(define (pi-approx-recursive num-terms)
+    (define (square x)
+        (* x x))
+    (define (term i)
+        (/ (* 
+             (* 2 i) 
+             (+ (* 2 i) 2))
+           (square (+ (* 2 i) 1))))
+    (* 4 (product-recursive term 1 add-one num-terms)))
+
+; (factorial-recursive 7)
+(pi-approx-recursive 10)
