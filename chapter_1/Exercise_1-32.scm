@@ -22,8 +22,6 @@
 ; (sum 1 14 cube)
 
 (define (accumulate-recursive combiner null-value term a next b)
-    (newline)
-    (display a)
     (if (= a b)
         (combiner (term a) (term null-value))
         (combiner (term a) (accumulate-recursive combiner null-value term (next a) next b))))
