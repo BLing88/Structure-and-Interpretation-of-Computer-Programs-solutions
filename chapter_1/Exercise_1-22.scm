@@ -14,8 +14,6 @@
     (= n (smallest-divisor n)))
 
 (define (timed-prime-test n)
-    (newline)
-    (display n)
     (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
@@ -50,7 +48,7 @@
 ;                 (prime-search-iter (+ n 1) counter))))
 ;     (prime-search-iter start 0))
 
- (search-for-primes 1000000000000 200000000021 3)       ; 1e9 
+ (search-for-primes 1000000000000 2000000000021 3)       ; 1e9 
  (search-for-primes 10000000000000 20000000000061 3)     ; 1e10 
- (search-for-primes 100000000000000 100000000000057 3)   ; 1e11 
- (search-for-primes 1000000000000000 1000000000000063 3) ; 1e12 
+ (search-for-primes 100000000000000 100000000000557 3)   ; 1e11 
+ (search-for-primes 1000000000000000 1000000000000563 3) ; 1e12 
