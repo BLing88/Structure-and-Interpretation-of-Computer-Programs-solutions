@@ -1,0 +1,2 @@
+This procedure would work, but it would involve large numbers in the intermediate calculations, and arithmetic for large numbers
+is computationally more involved. The original expmod procedure without using fast-exp avoids this issue.
