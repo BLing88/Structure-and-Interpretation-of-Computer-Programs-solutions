@@ -1,0 +1,2 @@
+In the case of an even exponent, there are two calls to expmod (tree recursive process). To reach the base case n=0, you have to divide roughly log n times. 
+Making 2 calls to expmod each time means there are 2^(log n) = n calls. Hence the process is Theta(n) rather than Theta(log n).
