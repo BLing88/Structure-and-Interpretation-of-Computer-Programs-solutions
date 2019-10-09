@@ -1,11 +1,5 @@
 (define (filtered-accumulate combiner null-value term a next b filter)
     (define (accumulate-iter accumulation current-term)
-    (newline)
-    (display "current term ")
-    (display current-term)
-    (newline)
-    (display "accumulation ")
-    (display accumulation)
         (if (> current-term b)
             (combiner accumulation (term null-value))
             (if (filter current-term)
@@ -85,6 +79,22 @@
     ; Use 100 as an arbitrary value.  
     (fast-prime? n 100))  
 
+(define (gcd a b)
+    (if (= b 0)
+        a
+        (gcd b (remainder a b))))
+
+(define (relatively-prime-to-n? n)
+    (define (relatively-prime? i)
+        (= (gcd n i) 1))
+    relatively-prime?)
+
+(define (product a b)
+    (* a b))
+
+(define (identity x)
+    x)
 
 
-(filtered-accumulate add 0 square 2 add-one 20 prime?)
+; (filtered-accumulate add 0 square 2 add-one 23 prime?)  ; 1556
+(filtered-accumulate product 1 identity 1 add-one 11 (relatively-prime-to-n? 11))  ; 3628800
