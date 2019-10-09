@@ -1,0 +1,4 @@
+(define f g
+    (g 2))
+
+If we evaluate (f f), we get (f 2), which evaluates to (2 2) which does not make sense since 2 is not a function.
