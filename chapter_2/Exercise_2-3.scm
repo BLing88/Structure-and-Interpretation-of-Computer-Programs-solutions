@@ -100,3 +100,58 @@
 (display "area = ")
 (display (area y))
 
+;; representation 2: represent rectangles by storing segments corresponding to the midpoint bisctors
+(define (make-rect bisector-1 bisector-2)
+    (if (> (segment-length bisector-1) (segment-length bisector-2))
+        (cons bisector-2 bisector-1)
+        (cons bisector-1 bisector-2)))
+
+(define (shorter-side rect)
+    (car rect))
+
+(define (longer-side rect)
+    (cdr rect))
+
+(define (area rect)
+    (* 
+      (segment-length (shorter-side rect)) 
+      (segment-length (longer-side rect))))
+
+(define (perimeter rect)
+    (* 2 
+      (+ 
+        (segment-length (shorter-side rect)) 
+        (segment-length (longer-side rect)))))
+
+;; check using the same rectangles in terms of their bisectors
+(define x (make-rect 
+  (make-segment 
+    (make-point 0 0.5)
+    (make-point 1 0.5))
+  (make-segment 
+    (make-point 0.5 0)
+    (make-point 0.5 2))))
+
+;; check rotate x by 30 degrees ccw
+(define y (make-rect 
+  (make-segment 
+    (make-point (/ -1 4) (/ (sqrt 3) 4))
+    (make-point 
+      (+ (/ -1 4) (/ (sqrt 3) 2)) 
+      (+ (/ 1 2) (/ (sqrt 3) 4))))
+  (make-segment 
+    (make-point (/ (sqrt 3) 4) (/ 1 4))
+    (make-point (- (/ (sqrt 3) 4) 1) (+ (sqrt 3) (/ 1 4))))))
+
+(newline)
+(display "perimeter = ")
+(display (perimeter x))
+(newline)
+(display "area = ")
+(display (area x))
+(newline)
+(display "perimeter = ")
+(display (perimeter y))
+(newline)
+(display "area = ")
+(display (area y))
