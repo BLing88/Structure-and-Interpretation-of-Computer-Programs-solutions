@@ -1,0 +1,8 @@
+Let x and y be the midpoints of two intervals, and let dx, dy > 0 be their corresponding widths. 
+Then (x + dx)*(y + dy) = xy + x dy + y dx + dx dy.
+Assuming that dx, dy are negligible compared to x and y, we can drop the dx dy term. 
+Likewise, (x - dx)*(y - dy) is approximately xy - x dy - y dx,
+Thus, the product of the intervals is [xy - (x dy + y dx), xy + (x dy + y dx)]
+The width of this interval is x dy + y dx, and the center is xy. 
+The corresponding tolerance is (x dy + y dx) / (xy) = dy / y + dx / x,
+which is to say the percent tolerance of the product is the sum of the percent tolerances of the factors.
