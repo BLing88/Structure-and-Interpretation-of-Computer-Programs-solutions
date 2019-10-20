@@ -1,0 +1,5 @@
+The answer list is first in the reverse order because the answer list is being created from the end of the list.
+
+Switching the arguments to cons does not fix this bug because now a proper list is not being constructed. 
+Instead of each item being in the car of each pair, and the reference to the next pair in the cdr, it is 
+the other way around.
