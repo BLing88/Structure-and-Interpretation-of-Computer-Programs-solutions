@@ -38,7 +38,8 @@
         (not (pair? x)))
     (cond ((is-not-mobile? mobile) true)
         ((left-right-balanced? mobile)
-            (and (is-balanced? (branch-structure (right-branch mobile))) (is-balanced? (branch-structure (left-branch mobile)))))
+            (and (is-balanced? (branch-structure (right-branch mobile))) 
+                (is-balanced? (branch-structure (left-branch mobile)))))
         (else false))
     )
 
@@ -46,3 +47,13 @@
 (define w (make-mobile (make-branch 1 y) (make-branch 2 x)))
 (define u (make-mobile (make-branch 2 z) (make-branch 4 5)))
 (display (is-balanced? u))
+
+
+;; if we change the representation of mobiles to the following:
+; (define (make-mobile left right)
+;     (cons left right))
+
+; (define (make-branch length structure)
+;     (cons length structure))
+
+;; then the only things that need to change above are the selectors right-branch, and branch-structure
