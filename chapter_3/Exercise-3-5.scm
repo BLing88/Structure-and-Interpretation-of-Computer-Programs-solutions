@@ -1,0 +1,27 @@
+(define (random-in-range low high)
+        (let ((range (- high low)))
+          (+ low (random range))))
+
+(define (estimate-integral P x1 x2 y1 y2 n)
+    (define (random-x)
+        (random-in-range x1 x2))
+    (define (random-y)
+        (random-in-range y1 y2))
+    (define (trial estimate trials-left)
+        (cond ((= trials-left 0)
+            (* (/ estimate n) 4))
+        (else (let ((x (random-x))
+              (y (random-y)))
+             (if (P x y)
+               (trial (+ estimate 1) (- trials-left 1))
+               (trial estimate (- trials-left 1)))))))
+    (trial 0 n))
+
+(define (is-in-circle x y)
+    (define (square a)
+        (* a a))
+    (<= (+ (square x) (square y)) 1.0))
+
+(newline)
+(display (estimate-integral is-in-circle -1.0 1.0 -1.0 1.0 10000000))
+
